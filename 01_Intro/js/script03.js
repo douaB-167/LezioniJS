@@ -11,18 +11,18 @@ for(let i=0; i < prodotti.length; i++){
     let tr = document.createElement("tr");
 
     let tdNome = document.createElement("td");
-    tdNome.textContent = prodotti[i].toUpperCase().charAt(0) + prodotti[i].slice(1);
+    tdNome.innerHTML = prodotti[i].toUpperCase().charAt(0) + prodotti[i].slice(1);
     //tdNome.textContent = prodotti[i].charAt(0).toUpperCase() + prodotti[i].slice(1);
 
     let tdPrezzo = document.createElement("td");
-    tdPrezzo.textContent = prezzi[i] + " €";
+    tdPrezzo.innerHTML = prezzi[i] + " €";
     
     let tdQuantita = document.createElement("td");
-    tdQuantita.textContent = quants[i];
+    tdQuantita.innerHTML = quants[i];
 
     let subTotale = prezzi[i] * quants[i];
     let tdSubTotale = document.createElement("td");
-    tdSubTotale.textContent = subTotale.toFixed(2);
+    tdSubTotale.innerHTML = subTotale.toFixed(2);
 
     tr.appendChild(tdNome);
     tr.appendChild(tdPrezzo);
