@@ -15,7 +15,7 @@ for(let i=0; i < prodotti.length; i++){
     //tdNome.textContent = prodotti[i].charAt(0).toUpperCase() + prodotti[i].slice(1);
 
     let tdPrezzo = document.createElement("td");
-    tdPrezzo.innerHTML = prezzi[i] + " €";
+    tdPrezzo.innerHTML = prezzi[i].toFixed(2) + " €";
     
     let tdQuantita = document.createElement("td");
     tdQuantita.innerHTML = quants[i];
@@ -32,5 +32,19 @@ for(let i=0; i < prodotti.length; i++){
     listaSpesa.appendChild(tr);
     totaleGenerale += subTotale;
 }
+
+// let grandTotal = 0;
+
+// for(let i = 0; i < prodotti.length; i++){
+//     let subtotal = quants[i] * prezzi[i];
+//     grandTotal += subtotal;
+//     listaSpesa.innerHTML += `<tr>
+//                             <td> ${prodotti[i]} </td
+//                             <td> ${prezzi[i]} </td
+//                             <td> ${quants[i]} </td
+//                             <td> ${subtotal.toFixed(2)} </td
+//                             </tr
+//                             `;
+// }
 
 document.getElementById("totale").innerHTML = "Totale: " + totaleGenerale.toFixed(2) + " €";

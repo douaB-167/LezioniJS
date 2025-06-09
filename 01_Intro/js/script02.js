@@ -23,6 +23,7 @@ let listaDoc = document.getElementById("listaDoc");
 
 for(let i = 0; i < docenti.length; i++){
     if(i % 2  == 0){
+        //ATT: innerHTML NON è un metodo ma una proprietà
         listaDoc.innerHTML += `<li class="txtRed">${docenti[i]}</li>`;
     }else{
         listaDoc.innerHTML += `<li class="txtBlue">${docenti[i]}</li>`;

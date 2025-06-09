@@ -95,3 +95,15 @@ console.log(find);
 //metodi per unire gli array e spaccare
 let parole = ["Ciao", "Smartphone", "Mare", "Spiaggia", "Sole"];
 console.log(parole.join("_"));
+
+
+let nome = "Dario";
+let numLettere = nome.length;
+let emon = nome.split("").reverse().join();
+console.log(emon);
+
+let prova = "";
+for(let i = nome.length; i > 0; i--){
+    prova += nome[i];
+}
+console.log(prova);
