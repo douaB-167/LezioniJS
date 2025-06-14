@@ -17,7 +17,7 @@ btnTortaMele.addEventListener("click", function(){
     document.getElementById("risultato1").innerHTML = `Gli ingredienti della ${torta1.nome} sono: 
     <br>${torta1.ingredienti}. 
     <br>Il prezzo è: ${torta1.prezzo}.
-    <br>La data di scadenza è ${torta1.data_scadenza.toLocaleDateString('it-IT')}`;
+    <br>La data di scadenza è ${torta1.data_scadenza.toLocaleDateString('it-IT')}`; //formato all'italiana gg/mm/aaaa, toISOString().split('T')[0] formato all'americana aaaa-mm-dd
 });
 
 let torta2 = new Torta("Crostata di Crema pasticcera", "4.49€", ["olio", "sale", "scorza di limone", "farina", "uova", "latte", "zucchero", "vaniglia"], "./img/torta_crema_pasticcera");
