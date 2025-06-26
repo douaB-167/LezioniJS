@@ -7,3 +7,11 @@
 .txtRed{
     color: red;
 }
+
+.txtBar{
+    text-decoration: line-through;
+}
+
+.borderRed{
+    border-color: red;
+}

@@ -29,7 +29,7 @@ let listaLibri = document.querySelector("ul.sezLibri");
 
 //Voglio recuperare più elementi contemporaneamente
 //USO QUERY SELCTOR ALL, questo metodo genera una NodeList sempre (parente degli array)
-
+//Node List
 let lis = document.querySelectorAll("li");
 console.log(lis);
 
