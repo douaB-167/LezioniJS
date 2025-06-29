@@ -18,10 +18,8 @@ function inviaForm(event){
         feed.innerHTML += "<h5>Email errata</h5>";
         mioForm.email.setAttribute("class", "borderRed");
         event.preventDefault();
-        //\\\\return false;
     }else{
-        //mioForm.email.removeAttribute("class");
-        mioForm.email.setAttribute("class", "borderGreen");
+        mioForm.email.removeAttribute("class");
         user.email = mioForm.email.value;
     }
     
@@ -29,20 +27,16 @@ function inviaForm(event){
         feed.innerHTML += "<h5> Hai dimenticato la password </h5>";
         mioForm.password.setAttribute("class", "borderRed");
         event.preventDefault();
-        //\\\\return false;
     }else{
-        //mioForm.password.removeAttribute("class");
-        mioForm.password.setAttribute("class", "borderGreen");
+        mioForm.password.removeAttribute("class");
         user.password = mioForm.password.value;
     }
 
     console.log(user);
     localStorage.setItem("user", JSON.stringify(user));
-    //localStorage.setItem("utente connesso", "Glenda");
     
     event.preventDefault();
-    // mioForm.reset();
 }
 
 
-mioForm.addEventListener("submit", inviaForm, false);
+mioForm.addEventListener("submit", inviaForm);
