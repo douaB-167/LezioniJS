@@ -1,42 +1,73 @@
 class User{
-    constructor(email, password){
-        this.email = email;
-        this.password = password
+    constructor(nome, password, todoList){
+        this.nome = nome;
+        this.password = password;
+        this.todoList = todoList;
     }
 }
+//let nuovoUser = new User("Doua", "Boufqir", []);
+let nuovoUser = new User();
 let feed = document.querySelector("#feed");
 let mioForm = document.querySelector("#mioForm");
 
-function inviaForm(event){
-    let user = new User();
+let userConnesso = new User();
+function controllaForm(event){
 
-    feed.innerHTML = "";
-
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/
-    //Adesso che so come prendere i campi li controllo uno a uno
-    if(mioForm.email.value.match(emailRegex) || mioForm.email.value == ""){
-        feed.innerHTML += "<h5>Email errata</h5>";
-        mioForm.email.setAttribute("class", "borderRed");
+    if(mioForm.nome == ""){
         event.preventDefault();
+        feed.innerHTML += "Mi spiace non hai inserito il nome";
     }else{
-        mioForm.email.removeAttribute("class");
-        user.email = mioForm.email.value;
+        userConnesso.nome = mioForm.nome.value;
     }
     
     if(mioForm.password.value == ""){
-        feed.innerHTML += "<h5> Hai dimenticato la password </h5>";
-        mioForm.password.setAttribute("class", "borderRed");
         event.preventDefault();
+        feed.innerHTML += "Mi spiace non hai inserito la passwprd";
     }else{
-        mioForm.password.removeAttribute("class");
-        user.password = mioForm.password.value;
+        userConnesso.password = mioForm.password.value;
     }
 
-    console.log(user);
-    localStorage.setItem("user", JSON.stringify(user));
-    
-    event.preventDefault();
+    //registro stesso qui dentro il mio user
+    if(userConnesso.nome != "" && userConnesso.password != ""){
+        userConnesso.todoList = [];
+        let userJSON = JSON.stringify(userConnesso);
+        localStorage.setItem("user", userJSON);
+    }
+
 }
 
+mioForm.addEventListener("submit", controllaForm);
 
-mioForm.addEventListener("submit", inviaForm);
+// function inviaForm(event){
+//     feed.innerHTML = "";
+
+//     if(mioForm.nome.value == ""){
+//         feed.innerHTML += "<h5> Hai dimenticato il nome </h5>";
+//         mioForm.nome.setAttribute("class", "borderRed");
+//         event.preventDefault();
+//         //\\\\return false;
+//     }else{
+//         mioForm.nome.removeAttribute("class");
+//         nuovoUser.nome = mioForm.nome.value;
+//     }
+    
+//     if(mioForm.password.value == ""){
+//         feed.innerHTML += "<h5> Hai dimenticato la password </h5>";
+//         mioForm.password.setAttribute("class", "borderRed");
+//         event.preventDefault();
+//         //\\\\return false;
+//     }else{
+//         mioForm.password.removeAttribute("class");
+//         nuovoUser.password = mioForm.password.value;
+//     }
+    
+//     nuovoUser.todoList = [];
+    
+//     console.log(nuovoUser);
+//     localStorage.setItem("user", JSON.stringify(nuovoUser));
+    
+//     //event.preventDefault();
+//     // mioForm.reset();
+// }
+
+// mioForm.addEventListener("submit", inviaForm);
