@@ -1,3 +1,5 @@
+let demo = document.querySelector("#demo");
+
 const urlEP = "https://reqres.in/api/users?page=1";
 
 //se nella fetch non inserisco un configuration object, di default sto eseguendo un metodo GET
@@ -22,5 +24,32 @@ fetch(urlEP, {
     //     console.log(response.data[i].email);
         
     // }
+
+    response.data.forEach(persona => {
+        creaCard(persona);
+    });
     
 })
+
+class Persona{
+    constructor(first_name, last_name, email, avatar){
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.email = email;
+        this.avatar = avatar;
+    }
+}
+
+/** 
+ * @param {Persona} persona 
+ */
+function creaCard(persona){
+    let li = document.createElement("li");
+    li.textContent = persona.first_name + " " + persona.last_name + " email: " + persona.email;
+
+    let img = document.createElement("img");
+    img.setAttribute("src", persona.avatar);
+
+    li.appendChild(img);
+    demo.appendChild(li);
+}
